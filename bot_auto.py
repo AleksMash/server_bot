@@ -64,7 +64,6 @@ def main():
             except Exception:
                 logger.info('Bot was interrupted due to error:')
                 logger.info(traceback.format_exc())
-                return
 
 
 if __name__ == "__main__":

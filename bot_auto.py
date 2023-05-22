@@ -62,8 +62,7 @@ def main():
                     msg_text += f'Cсылка на работу: {lesson_info["lesson_url"]}'
                     bot.send_message(chat_id=chat_id, text=msg_text)
             except Exception:
-                logger.info('Bot was interrupted due to error:')
-                logger.info(logging.exception())
+                logger.exception(msg='Bot was interrupted due to error!')
 
 
 if __name__ == "__main__":

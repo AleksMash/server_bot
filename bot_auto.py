@@ -1,13 +1,14 @@
 import logging
-import traceback
 
 from time import sleep
 
 import telegram
-import argparse
 from environs import Env
 
 import requests
+
+
+logger = logging.getLogger(__file__)
 
 
 class TelegramLogsHandler(logging.Handler):
@@ -29,7 +30,6 @@ def main():
     chat_id = env.str('CHAT_ID')
     params = {}
     logging.basicConfig(level=logging.INFO)
-    logger = logging.getLogger('MyLogger')
     logger.setLevel(logging.INFO)
     bot = telegram.Bot(token=env.str('TG_CLIENTS_TOKEN'))
     logger.addHandler(TelegramLogsHandler(bot, chat_id))
@@ -63,7 +63,7 @@ def main():
                     bot.send_message(chat_id=chat_id, text=msg_text)
             except Exception:
                 logger.info('Bot was interrupted due to error:')
-                logger.info(traceback.format_exc())
+                logger.info(logging.exception())
 
 
 if __name__ == "__main__":

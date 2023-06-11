@@ -31,7 +31,7 @@ CHAT_ID=<ID вашего чата с ботом>
 
 # Запуск через Docker
 
-- установите [Docker](https://docs.docker.com/get-docker/
+- установите [Docker](https://docs.docker.com/get-docker/)
 - загрузите образ из репозитария командой `docker pull avmseven/devman_bot`
 - создайте контейнер командой `docker run -d --env-file <your_config_file> avmseven/devman_bot`
     - `your_config_file` - путь к файлу с переменными окружения (описан выше)
